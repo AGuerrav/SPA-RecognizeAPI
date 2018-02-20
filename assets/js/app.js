@@ -32,8 +32,8 @@ function processImage() {
     url: uriBase + "?" + $.param(params),
     // Request headers.
     beforeSend: function(xhrObj) {
-      xhrObj.setRequestHeader("Content-Type","application/json");
-      xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+      xhrObj.setRequestHeader('Content-Type', 'application/json');
+      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
     },
     type: "POST",
     // Request body.
@@ -41,7 +41,7 @@ function processImage() {
   })
     .done(function(data) {
     // Show formatted JSON on webpage.
-      $('#responseTextArea').val(JSON.stringify(data, null, 2));
+      // $('#responseTextArea').val(JSON.stringify(data, null, 2));
       console.log(data);
       // console.log(data[0].faceId);
       showInfo(data);
@@ -55,33 +55,27 @@ function processImage() {
       alert(errorString);
     });
   function showInfo(resp) {
-    if (resp.length = 1) {
+    if (resp.length === 1) {
       var faceAtrr = resp[0].faceAttributes;
       console.log(faceAtrr);
       var smile = faceAtrr.smile;
       // console.log(smile);
       var gender = faceAtrr.gender;
       var age = faceAtrr.age;
-      var glasses = faceAtrr.glasses;
-      console.log(glasses);
+      // var glasses = faceAtrr.glasses;
+      // console.log(glasses);
       // --------------------------------------------Maquillaje
       var makeUp = faceAtrr.makeup;
-      // console.log(makeUp);
       var eyeMakeUp = makeUp.eyeMakeup;
-      // console.log(eyeMakeUp);
       var lipMakeup = makeUp.lipMakeup;
-      // console.log(lipMakeup);
       // ------------------------------------------------vello facial
       var facialHair = faceAtrr.facialHair;
-      // console.log(facialHair);
       var moustache = facialHair.moustache;
-      // console.log(moustache);
       var beard = facialHair.beard;
       var sideburns = facialHair.sideburns;
-      // console.log(sideburns);
+
       // ----------------------------------------------------Emociones
       var emotion = faceAtrr.emotion;
-      //  console.log(emotion);
       var anger = emotion.anger; // ira
       //  console.log(anger);
       var contempt = emotion.contempt; // desprecio
@@ -89,29 +83,41 @@ function processImage() {
       var fear = emotion.fear; // miedo
       var happiness = emotion.happiness; // felicidad
       var neutral = emotion.neutral;
-      var sadness = emotion.sadness; // tristeza   var surprise = emotion.surprise; //sorpresa
+      var sadness = emotion.sadness; // tristeza
+      var surprise = emotion.surprise; //sorpresa
       //  console.log(contempt, disgust, fear, happiness, neutral, sadness, surprise);
       // -------------------------------------------------------------Accesorios
       var accessories = faceAtrr.accessories;
-      var headwear = accessories.headwear;
-      var glasses = accessories.glasses;
-      var mask = accessories.mask;
-      console.log(headwear, glasses, mask);
+      // var headwear = accessories.headwear;
+      // var glasses = accessories.glasses;
+      // var mask = accessories.mask;
+      // console.log(headwear, glasses, mask);
+      move(age);
 
-      var found = resp.find(function (el) {
-        return el = faceAtrr;
-
-      })
-      console.log(found);
-
+      // var found = resp.find(function (el) {
+      //   return el = faceAtrr;
+      //
+      // })
+      // console.log(found);
       // var len = resp.length;
       // console.log(len);
-
     } else {
-      console.log("no se encuentra imagen");
+      console.log("No se detecta una cara");
     }
     // var faceId= resp[0].faceId;
     // console.log(faceId);
-
   }
 };
+function move(pepa) {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= pepa) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
