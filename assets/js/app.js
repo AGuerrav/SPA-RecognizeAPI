@@ -54,45 +54,109 @@ function processImage() {
         jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
       alert(errorString);
     });
-  function showInfo(resp) {
-    if (resp.length === 1) {
-      var faceAtrr = resp[0].faceAttributes;
-      console.log(faceAtrr);
-      var smile = faceAtrr.smile;
+    var idPin = 0;
+  function showInfo(data) {
+    if (data.length > 0) {
+      data.forEach(el => {
+        var faceAtrr = el.faceAttributes;
+        console.log(faceAtrr);
+
+        var gender = faceAtrr.gender;
+        var age = faceAtrr.age;
+        var smile = faceAtrr.smile;
+        // --------------------------------------------Maquillaje
+        var makeUp = faceAtrr.makeup;
+        var eyeMakeUp = makeUp.eyeMakeup;
+        var lipMakeup = makeUp.lipMakeup;
+        // ------------------------------------------------vello facial
+        var facialHair = faceAtrr.facialHair;
+        var moustache = facialHair.moustache;
+        var beard = facialHair.beard;
+        var sideburns = facialHair.sideburns;
+        // ----------------------------------------------------Emociones
+        var emotion = faceAtrr.emotion;
+        var anger = emotion.anger; // ira
+        //  console.log(anger);
+        var contempt = emotion.contempt; // desprecio
+        var disgust = emotion.disgust; // disgusto
+        var fear = emotion.fear; // miedo
+        var happiness = emotion.happiness; // felicidad
+        var neutral = emotion.neutral;
+        var sadness = emotion.sadness; // tristeza
+        var surprise = emotion.surprise; // sorpresa
+        console.log(contempt, disgust, fear, happiness, neutral, sadness, surprise);
+        // ----------------Genero
+        $('.holo').append(`<div class="row container"><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${gender}"><div class="skillbar-title" style="background: #22ab06;"><span>Genero</span></div><div class="skillbar-bar" style="background: #7be066;"></div><div class="skill-bar-percent">${gender}</div>`);
+          // ----------------Edad
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${age}"><div class="skillbar-title" style="background: #124e8c;"><span>Edad</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${age}</div>`);
+          // ----------------Smile
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${smile*100}%"><div class="skillbar-title" style="background: #124e8c;"><span>Sonrisa</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${smile*100}%</div>`);
+        // ----------------eyeMakeup
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${eyeMakeUp}"><div class="skillbar-title" style="background: #124e8c;"><span>EyeMakeup</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${eyeMakeUp}</div>`);
+        // ----------------lipMakeup
+        $('.holo').append(`<div class=""><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${lipMakeup}"><div class="skillbar-title" style="background: #124e8c;"><span>LipMakeup</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${lipMakeup}</div></div>`);
+        // ----------------moustache
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${moustache*100}%"><div class="skillbar-title" style="background: #124e8c;"><span>Bigote</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${moustache*100}%</div>`);
+        // ----------------beard
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${beard*100}%"><div class="skillbar-title" style="background: #124e8c;"><span>Barba</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${beard*100}%</div>`);
+        // ----------------sideburns
+        $('.holo').append(`<div class="col-lg-offset-3 col-lg-pull-3 col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+          <div class="skillbar clearfix " data-percent="${sideburns*100}%"><div class="skillbar-title" style="background: #124e8c;"><span>Patillas</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent">${sideburns*100}%</div>`);
+        $('.holo').append(`<div class="row container"><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent=""><div class="skillbar-title" style="background: #c88d08;"><span>Emociones</span></div><div class="skillbar-bar" style="background: #4288d0;"></div><div class="skill-bar-percent"></div>`);
+        // ----------------anger
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${anger*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Ira</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${anger*100}%</div>`);
+        // ----------------contempt
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${contempt*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Desprecio</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${contempt*100}%</div>`);
+        // ----------------fear
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${fear*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Miedo</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${fear*100}%</div>`);
+        // ----------------disgust
+        $('.holo').append(`<div class=""><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${disgust*100}$"><div class="skillbar-title" style="background: #c88d08;"><span>Disgusto</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${disgust*100}$</div></div>`);
+        // ------------------happiness
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${happiness*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Felicidad</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${happiness*100}%</div>`);
+        // ----------------neutral
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${neutral*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Neutral</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${neutral*100}%</div>`);
+        // ----------------sadness
+        $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${sadness*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Tristeza</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${sadness*100}%</div>`);
+        // ----------------disgust
+        $('.holo').append(`<div class=""><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="skillbar clearfix " data-percent="${surprise*100}$"><div class="skillbar-title" style="background: #c88d08;"><span>Sorpresa</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${surprise*100}$</div></div>`);
+
+      });
+
+
+      // var faceAtrr = data[0].faceAttributes;
+      // console.log(faceAtrr);
       // console.log(smile);
-      var gender = faceAtrr.gender;
-      var age = faceAtrr.age;
       // var glasses = faceAtrr.glasses;
       // console.log(glasses);
-      // --------------------------------------------Maquillaje
-      var makeUp = faceAtrr.makeup;
-      var eyeMakeUp = makeUp.eyeMakeup;
-      var lipMakeup = makeUp.lipMakeup;
-      // ------------------------------------------------vello facial
-      var facialHair = faceAtrr.facialHair;
-      var moustache = facialHair.moustache;
-      var beard = facialHair.beard;
-      var sideburns = facialHair.sideburns;
-
-      // ----------------------------------------------------Emociones
-      var emotion = faceAtrr.emotion;
-      var anger = emotion.anger; // ira
-      //  console.log(anger);
-      var contempt = emotion.contempt; // desprecio
-      var disgust = emotion.disgust; // disgusto
-      var fear = emotion.fear; // miedo
-      var happiness = emotion.happiness; // felicidad
-      var neutral = emotion.neutral;
-      var sadness = emotion.sadness; // tristeza
-      var surprise = emotion.surprise; //sorpresa
-      //  console.log(contempt, disgust, fear, happiness, neutral, sadness, surprise);
       // -------------------------------------------------------------Accesorios
-      var accessories = faceAtrr.accessories;
+      // var accessories = faceAtrr.accessories;
       // var headwear = accessories.headwear;
       // var glasses = accessories.glasses;
       // var mask = accessories.mask;
       // console.log(headwear, glasses, mask);
-      move(age);
+      // move(age);
+      $('.skillbar').each(function(){
+    		$(this).find('.skillbar-bar').animate({
+    			width:$(this).attr('data-percent')
+    		},1000);
+    	});
+
 
       // var found = resp.find(function (el) {
       //   return el = faceAtrr;
@@ -109,7 +173,7 @@ function processImage() {
   }
 };
 function move(pepa) {
-  var elem = document.getElementById("myBar");
+  var elem = document.getElementById("myBar_${idPin}");
   var width = 1;
   var id = setInterval(frame, 10);
   function frame() {
@@ -121,3 +185,6 @@ function move(pepa) {
     }
   }
 }
+// $(document).ready(function(){
+
+// });
