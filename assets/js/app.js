@@ -122,7 +122,7 @@ function processImage() {
           <div class="skillbar clearfix " data-percent="${fear*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Miedo</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${fear*100}%</div>`);
         // ----------------disgust
         $('.holo').append(`<div class=""><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <div class="skillbar clearfix " data-percent="${disgust*100}$"><div class="skillbar-title" style="background: #c88d08;"><span>Disgusto</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${disgust*100}$</div></div>`);
+          <div class="skillbar clearfix " data-percent="${disgust*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Disgusto</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${disgust*100}%</div></div>`);
         // ------------------happiness
         $('.holo').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <div class="skillbar clearfix " data-percent="${happiness*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Felicidad</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${happiness*100}%</div>`);
@@ -134,7 +134,7 @@ function processImage() {
           <div class="skillbar clearfix " data-percent="${sadness*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Tristeza</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${sadness*100}%</div>`);
         // ----------------disgust
         $('.holo').append(`<div class=""><div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <div class="skillbar clearfix " data-percent="${surprise*100}$"><div class="skillbar-title" style="background: #c88d08;"><span>Sorpresa</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${surprise*100}$</div></div>`);
+          <div class="skillbar clearfix " data-percent="${surprise*100}%"><div class="skillbar-title" style="background: #c88d08;"><span>Sorpresa</span></div><div class="skillbar-bar" style="background: #d2e078;"></div><div class="skill-bar-percent">${surprise*100}%</div></div>`);
 
       });
 
