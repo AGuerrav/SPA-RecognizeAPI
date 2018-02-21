@@ -153,7 +153,7 @@ var config = {
   };
 
   firebase.initializeApp(config);
-  var provider = new firebase.auth.GoogleAuthProvider();
+  /*var provider = new firebase.auth.GoogleAuthProvider();
 
 // SIGN UP WITH FIREBASE
  function signIn(){
@@ -181,7 +181,7 @@ var config = {
   // ...
 });
 }
-
+*/
 
 
   window.onload = inicializar;
