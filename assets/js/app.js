@@ -155,6 +155,7 @@ var config = {
   firebase.initializeApp(config);
   var provider = new firebase.auth.GoogleAuthProvider();
 
+// SIGN UP WITH FIREBASE
  function signIn(){
  firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
@@ -164,6 +165,8 @@ var config = {
   console.log(user.displayName);
   //$('.user_name').append('<h5> Hi ' + user.displayName + '!</h5>');
   $('#section_one').removeClass('hidden');
+  $('#section_two').removeClass('hidden');
+  $('#section_three').removeClass('hidden');
   $('#google-sign').addClass('hidden');
   
   // ...
