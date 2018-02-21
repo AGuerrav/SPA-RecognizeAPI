@@ -1,4 +1,4 @@
-
+$document.ready
 function processImage() {
   // **********************************************
   // *** Update or verify the following values. ***
@@ -166,25 +166,25 @@ function processImage() {
       // var len = resp.length;
       // console.log(len);
     } else {
-      console.log("No se detecta una cara");
+      alert("No se detecta una cara");
     }
     // var faceId= resp[0].faceId;
     // console.log(faceId);
   }
 };
-function move(pepa) {
-  var elem = document.getElementById("myBar_${idPin}");
-  var width = 1;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= pepa) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-    }
-  }
-}
+// function move(pepa) {
+//   var elem = document.getElementById("myBar_${idPin}");
+//   var width = 1;
+//   var id = setInterval(frame, 10);
+//   function frame() {
+//     if (width >= pepa) {
+//       clearInterval(id);
+//     } else {
+//       width++;
+//       elem.style.width = width + '%';
+//     }
+//   }
+// }
 // $(document).ready(function(){
 
 // });
