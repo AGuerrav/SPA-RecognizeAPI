@@ -6,29 +6,43 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-   <section>
-    <h1>Analiza tu foto</h1>
-    <p>Ingresa la url de la imagen a analizar <br>Imagen para analizar:<span> 
-    <button onclick="processImage()">Analyze face</button></p>
-    <input type="text" placeholder="Ingresa el link de la imagen" name="inputImage" id="inputImage" value="" ></span>
+
+  <!-- BOTON INICIAR CON GOOGLE -->
+  <button id="google-sign" onclick="signIn()" type="button">ENTER WITH GOOGLE</button> 
+
+  <section class="hidden container" id="section_one">
+    <div class="row container">
+      <div class="col">
+        <h1>Analiza tu foto</h1>
+        <p>Ingresa la url de la imagen a analizar</p> 
+        <p>Imagen para analizar:</p>
+        <button onclick="processImage()" >Analyze face</button></p>
+        <input type="text" placeholder="Ingresa el link de la imagen" name="inputImage" id="inputImage" value="">
+      </div>
+    </div> 
   </section>
-  <section>
-    <div>
+
+  <section class="hidden container" id="section_one">
+    <div class="row container">
       <form id="form-imagenes">
         <label for="" class="btn-file">
         <input type="file" name="fichero" value="" id="fichero">
         </label>
       </form>
       <img id="sourceImage" width="400" />
+      <div id="img-container" ></div>
     </div>
-    <div id="img-container"></div>
   </section>
 
-  <!-- SKILLS -->
-  <div class="holo container"></div>
-  <div class="myProgress">
-  <div class="myBar"></div>
-  </div>
+  <!-- EMOTIONS -->
+  <section class="container hidden"  id="section_one">
+    <div class="row">
+      <div class="holo container"></div>
+      <div class="myProgress">
+        <div class="myBar"></div>
+      </div>
+    </div>
+  </section>
 
 
 
