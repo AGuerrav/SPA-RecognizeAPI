@@ -9,31 +9,56 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <h1>Analiza tu foto</h1>
-  <p>Ingresa la url de la imagen a analizar <br>Imagen para analizar:<span> <input type="text" placeholder="ingresa la imagen" name="inputImage" id="inputImage" value="" ></span>
-  <button onclick="processImage()">Analiza!</button></p>
-  <div id="wrapper" style="width:1020px; display:table;">
-      <!-- <div id="jsonOutput" style="width:600px; display:table-cell;">
-          Response:
-          <br><br>
-          <!-- <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea> -->
-      <!-- </div> -->
+
+  <!-- BOTON INICIAR CON GOOGLE -->
+  <!-- <button id="google-sign" onclick="signIn()" type="button">ENTER WITH GOOGLE</button> -->
+
+  <section class="container" id="section_one">
+    <div class="row container">
+      <div class="col">
+        <h1>Analiza tu foto</h1>
+        <p>Ingresa la url de la imagen a analizar</p>
+        <p>Imagen para analizar:</p>
+        <button onclick="processImage()" >Analyze face</button></p>
+        <input type="text" placeholder="Ingresa el link de la imagen" name="inputImage" id="inputImage" value="">
+    <div id="wrapper" style="width:1020px; display:table;"></div>
       <div id="imageDiv" style="width:420px; display:table-cell;">
     <img id="sourceImage" width="400" />
       </div>
-  </div>
-   <!-- End Skill Bar -->
-
     </div>
-  </div>
+    </div>
+  </section>
 
-  <div class="holo container"></div>
-  <div class="myProgress">
-  <div class="myBar"></div>
-  </div>
-  <!-- <button onclick="move()">Click Me</button> -->
+  <section class="container" id="section_two">
+    <div class="row container">
+      <form id="form-imagenes">
+        <label for="" class="btn-file">
+        <input type="file" name="fichero" value="" id="fichero">
+        </label>
+      </form>
+      <img id="sourceImage" width="400" />
+      <div id="img-container" ></div>
+    </div>
+  </section>
+
+  <!-- EMOTIONS -->
+  <section class="container" id="section_three">
+    <div class="row">
+      <div class="holo container"></div>
+      <div class="myProgress">
+        <div class="myBar"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
   <script type="text/javascript" src=.\assets\js\app.js></script>
 </body>
 </html>
