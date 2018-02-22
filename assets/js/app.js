@@ -152,10 +152,10 @@ $(document).ready(() => {
           alert("No se detecta una cara");
         }
       }
-
     } // end if event
   });  // end on key press
 });//end document ready
+
 
 // FIREBASE Y CARGA IMAGEN DESDE ORDENADOR
 var config = {
@@ -183,7 +183,11 @@ var config = {
   $('#section_two').removeClass('hidden');
   $('#section_three').removeClass('hidden');
   $('#google-sign').addClass('hidden');
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 5fac01fbc4f6cedbe77929d60f06b285cf0eb16b
   // ...
 }).catch(function(error) {
   // Handle Errors here.
@@ -243,12 +247,12 @@ var config = {
       var datos = snapshot.val();
       var result = "";
       for(var key in datos){
-        result += '<img width="200" src="' + datos[key].url + '"/>';
+
+        result += '<img width="300" class="img-responsive img-desktop" src="' + datos[key].url + '"/>';
       }
       document.getElementById("img-container").innerHTML = result;
     })
   }
-
   function subirImagenAFirebase(){
     var imagenASubir = fichero.files[0];
 
@@ -266,12 +270,14 @@ var config = {
 
     var downloadURL = uploadTask.snapshot.downloadURL;
     crearNodoEnBDFirebase(imagenASubir.name, downloadURL)
+
     });
   }
 
   function crearNodoEnBDFirebase(nombreImagen, downloadURL){
     faceImgRef.push({nombre: nombreImagen, url: downloadURL})
   }
+
 
    //limpiar al hacer click
   $('#fichero').on('click', function(){
@@ -337,34 +343,34 @@ var config = {
         });
 
       function showInfo(data) {
+        $('#sourceImage').empty();
         $('.holo').empty();
         if (data.length > 0) {
             data.forEach(el => {
               var faceAtrr = el.faceAttributes;
               console.log(faceAtrr);
-
-              var gender = faceAtrr.gender;
-              if (gender === 'male'){
-                gender = 'Masculino'
-              }else{
-                gender = 'Femenino'
-              };
-              var age = faceAtrr.age;
-              var smile = faceAtrr.smile;
-              // --------------------------------------------Maquillaje
-              var makeUp = faceAtrr.makeup;
-              var eyeMakeUp = makeUp.eyeMakeup;
-              if (eyeMakeUp === true) {
-                eyeMakeUp = 'si'
-              }else{
-                eyeMakeUp = 'no'
-              };
-              var lipMakeup = makeUp.lipMakeup;
-              if (lipMakeup === true) {
-              lipMakeup = 'si'
-              }else{
-                lipMakeup = 'no'
-              };
+               var gender = faceAtrr.gender;
+                if (gender === 'male'){
+                  gender = 'Masculino'
+                }else{
+                  gender = 'Femenino'
+                };
+                var age = faceAtrr.age;
+                var smile = faceAtrr.smile;
+                // --------------------------------------------Maquillaje
+                var makeUp = faceAtrr.makeup;
+                var eyeMakeUp = makeUp.eyeMakeup;
+                if (eyeMakeUp === true) {
+                  eyeMakeUp = 'si'
+                }else{
+                  eyeMakeUp = 'no'
+                };
+                var lipMakeup = makeUp.lipMakeup;
+                if (lipMakeup === true) {
+                lipMakeup = 'si'
+                }else{
+                  lipMakeup = 'no'
+                };
               // ------------------------------------------------vello facial
               var facialHair = faceAtrr.facialHair;
               var moustache = facialHair.moustache;
@@ -444,5 +450,4 @@ var config = {
           alert("No se detecta una cara");
         }
       }
-
 };

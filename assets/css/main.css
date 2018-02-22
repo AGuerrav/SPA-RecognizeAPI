@@ -1,3 +1,85 @@
+body{
+	background-image: url(../img/fofondo-01.png);
+	max-width: 80%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 18%;
+	background-color: ;
+}
+#section_one{
+	color: white;
+}
+.analyze{
+	background-color: #4BBBD8;
+	border: 2px solid #4BBBD8;
+	color: white;
+	padding: 5px;
+	margin-left: -8%;
+	margin-top: 2%;
+}
+.analyze:hover{
+	background-color: transparent;
+	border: 2px solid white;
+}
+.analyze:focus{
+	outline: none;
+}
+#inputImage{
+	background-color: transparent;
+	border: 2px solid white;
+	padding: 5px 0 ;
+}
+#inputImage:focus{
+outline: none;
+}
+#fichero{
+	color: white;
+}
+.fichero_input { /*ocultar texto al lado */
+  visibility: hidden;
+  width: 0;
+  position: relative;
+}
+.fichero_input::before {
+  content: 'Selecciona tu foto';
+  display: inline-block;
+  background-color: transparent;
+	border:2px solid white;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  visibility: visible;
+  position: absolute;
+}
+.fichero_input:hover::before {
+ 	background-color: #4BBBD8;
+	border: 2px solid #4BBBD8;
+}
+.fichero_input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.buttons{
+	margin-top: 3%;
+	vertical-align: middle;
+}
+.inp_img{
+	margin-left: 31%;
+}
+.fich{
+	margin-left:4%;
+}
+
+#img-container{
+	background-color: rgba(0,0,0,0.1);
+	text-align: center;
+}
+.img-desktop{
+	padding: 4%;
+	margin:auto;
+}
+.holo{
+	margin-top: 4%;
+}
 #myProgress {
   width: 100%;
   background-color: #ddd;
