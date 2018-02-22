@@ -1,3 +1,17 @@
+body{
+	background-image: url(../img/fofondo-01.png);
+	max-width: 80%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 18%;
+	background-color: ;
+}
+#section_one{
+	color: white;
+}
+.holo{
+	margin-top: 4%;
+}
 #myProgress {
   width: 100%;
   background-color: #ddd;
