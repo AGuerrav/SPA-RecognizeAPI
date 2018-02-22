@@ -16,23 +16,49 @@
     <div class="row container">
       <div class="col-xs-12 col-md-12 text-center">
         <h1>EMOTION API</h1>
-        <p>Ingresa la url de la imagen que quieres analizar o sube tus propias fotos </p> 
-        <p>Imagen para analizar:</p>
-        <button onclick="processImage()" >Analyze face</button></p>
-        <input type="text" placeholder="Ingresa el link de la imagen" name="inputImage" id="inputImage" value="">
+        <h5>Ingresa la url de la imagen que quieres analizar o sube tus propias fotos </h5> 
+        <h6>Imagen para analizar:</h6>
       </div>
     </div> 
   </section>
 
+  <section class="container buttons">
+    <div class="row">
+      <div class="col-md-2 inp_img">
+        <input type="text" placeholder="Ingresa el link de la imagen" name="inputImage" id="inputImage" value="" size="30">
+      </div>  
+      <div class="col-md-3 fich">
+        <input type="file" name="fichero" value="" id="fichero" class="fichero_input">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-md-offset-6">
+        <button onclick="processImage()" class="analyze" >ANALIZA TU FOTO</button>
+      </div> 
+    </div>
+  </section>
+
+
+  <section>
+    <div class="row">
+      <div class="col-xs-12 col-md-12 text-center">
+        <form id="form-imagenes">
+          <label for="" class="btn-file">
+          </label>
+       </form>
+      </div>
+    </div>
+  </section>
+
+    
+
+
   <section class="container" id="section_two">
     <div class="row container">
-      <form id="form-imagenes">
-        <label for="" class="btn-file">
-        <input type="file" name="fichero" value="" id="fichero">
-        </label>
-      </form>
-      <img id="sourceImage" width="400" />
-      <div id="img-container" ></div>
+     <div class="col-xs-6 col-md-6 text-center">
+      <img id="sourceImage" width="400" >
+      <div id="img-container"  ></div>
+    </div>
     </div>
   </section>
 
